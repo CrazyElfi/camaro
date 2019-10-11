@@ -41,38 +41,110 @@ h1, h2, h3, h4, h5, h6, p {
     margin-left: 5px;
 }
 
-.menu {
+.burger-menu__btn {
+    position: fixed;
+    top: 45px;
+    right: 110px;
+    z-index: 30;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.burger-menu__btn:hover .burger-menu__lines {
+    filter: brightness(0.7);
+}
+
+.burger-menu__lines,
+.burger-menu__lines::after,
+.burger-menu__lines::before {
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: #fff;
+}
+
+.burger-menu__lines {
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, 50%);
+    width: 29px;
     display: flex;
     justify-content: flex-end;
-    width: 34px;
-    flex-wrap: wrap;
-    margin-left: auto;
 }
 
-.menu span {
-    background: #fff;
-    display: block;
-    width: 34px;
-    height: 2px;
-    margin-bottom: 5px;
+.burger-menu__lines::before {
+    content: "";
+    top: -7px;
 }
 
-.menu span:nth-child(2) {
-    width: 29px;
-}
-
-.menu span:nth-child(3) {
+.burger-menu__lines::after{
+    content: "";
+    top: 7px;
     width: 21px;
 }
+
+.burger-menu__active .burger-menu__lines {
+    background-color: transparent;
+}
+
+.burger-menu__active .burger-menu__lines::before {
+    top: 0;
+    transform: rotate(45deg);
+}
+
+.burger-menu__active .burger-menu__lines::after{
+    top: 0;
+    transform: rotate(-45deg);
+}
+
+.burger-menu__nav {
+    padding-top: 45px;
+    position: fixed;
+    z-index: 20;
+    display: flex;
+    flex-flow: column;
+    /*height: 100%;*/
+    background-color: rgba(255, 255, 255, 0.1);
+    overflow-y: auto;
+    right: -100%;
+}
+
+.burger-menu__active .burger-menu__nav {
+    right: 0;
+}
+
+.burger-menu__link {
+    padding: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.burger-menu__link:hover {
+    filter: brightness(0.7);
+}
+
+.burger-menu__overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 10;
+}
+
+.burger-menu__active .burger-menu__overlay {
+    display: block;
+}
+
+
 
 .header-content {
     margin-top: 83px;
     display: flex;
     justify-content: space-between;
-}
-
-.offer {
-
 }
 
 .merits {
@@ -82,10 +154,6 @@ h1, h2, h3, h4, h5, h6, p {
 
 .merits span {
     margin-right: 23px;
-}
-
-.header-block{
-
 }
 
 .help-text{
@@ -165,8 +233,7 @@ h1 {
     display: flex;
     align-items: center;
     width: 210px;
-    margin: 0 auto;
-    margin-top: 150px;
+    margin: 150px auto 0 auto;
 }
 
 .arrow {
@@ -203,8 +270,3 @@ h1 {
 span.active {
     opacity: 1;
 }
-
-
-
-
-
